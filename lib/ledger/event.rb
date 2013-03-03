@@ -1,0 +1,19 @@
+module Ledger
+  class Event
+    attr_accessor :actor, :key, :action, :object, :data, :created_at
+
+    def initialize opts
+      opts.each do |attr, value|
+        self.send("#{attr}=", value) if respond_to?("#{attr}=")
+      end
+      self.created_at = Time.now
+    end
+    
+    class << self
+      def from_json json
+        require 'json'
+        self.new JSON.parse json
+      end
+    end
+  end
+end
