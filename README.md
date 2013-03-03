@@ -125,8 +125,8 @@ Want to send more information about events? Just send through the information at
 ```ruby
 create_event :state_changed, @category, from: from_state, to: @category.state
 ```
-```
 
+```
 {
 	"key"=>"category_state_changed",
 	"action"=>"state_changed",
