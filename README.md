@@ -49,7 +49,7 @@ Now all you need to do is call `#create_event` when you do something.
 ```ruby
 def update
 	@category.update_attributes! params[:category]
-	create_event :updateated, @category
+	create_event :updated, @category
 end
 ```
 
