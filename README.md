@@ -1,4 +1,4 @@
-# Ledger
+![Ledger](http://dl.dropbox.com/u/3155323/Screenshots/e~rru3f-4d8j.png)
 
 Does your app have the concept of accounts, with multiple users per account?
 
