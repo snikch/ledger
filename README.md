@@ -27,7 +27,7 @@ Or install it yourself as:
 Start by adding the `HasEvents` module to your account object.
 
 ```ruby
-class Account
+class Accounts
 	…
 	include Ledger::HasEvents
 	…
@@ -122,7 +122,7 @@ end
 
 Want to send more information about events? Just send through the information at the end of the `#create_event` call.
 
-```
+```ruby
 create_event :state_changed, @category, from: from_state, to: @category.state
 ```
 ```
