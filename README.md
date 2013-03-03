@@ -47,23 +47,22 @@ end
 Now all you need to do is call `#create_event` when you do something.
 
 ```ruby
-	…
-	def update
-		@category.update_attributes! params[:category]
-		create_event :updated, @category
-	end
-	…
+def update
+	@category.update_attributes! params[:category]
+	create_event :updateated, @category
+end
 ```
 
 Retrieve your event stream like so
 
 ```ruby
 account.event_stream.each do |e|
-	puts "#{a.actor['name'] #{a.action} #{a.object} #{a.data['name']}"
+	puts "#{a.actor['name']} #{a.action} #{a.object} #{a.data['name']}"
 end
 "Mal Curtis updated Category Food"
 ```
 
+`#event_stream` brings back the last 10 events. Send through an integer to get more.
 
 Each event has the following (by default, for options see further down).
 
@@ -162,6 +161,28 @@ Ledger.configure do |config|
 	)
 end
 ```
+
+### Manual Events
+
+You can add an event manually by creating an instance of `Ledger::Event`, then adding than in via `account.add_event`.
+
+```ruby
+new_event = Ledger::Event.new key: "manual_event", data: { some: "thing" }
+account.add_event new_event
+```
+
+### Direct Redis access
+
+You can access redis directly through `#events`. This will be a [Nest](https://github.com/soveran/nest) instance, and you can call on this, or use its naming schema to do some other magic.
+
+```ruby
+# Trim the events down to the last 100 events
+account.events.ltrim 0, 100
+
+# Create a new redis key (account:xxx:events:something_else)
+account.events["something_else"].lpush "Some data"
+```
+
 
 ## Contributing
 
