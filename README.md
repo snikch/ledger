@@ -27,7 +27,7 @@ Or install it yourself as:
 Start by adding the `HasEvents` module to your account object.
 
 ```ruby
-class Account < ActiveRecord::Base
+class Account
 	…
 	include Ledger::HasEvents
 	…
@@ -37,7 +37,7 @@ end
 Add in the `CreatesEvents` module to your controller.
 
 ```ruby
-class CategoriesController < ApplicationController
+class CategoriesController
 	…
 	include Ledger::CreatesEvents
 	…
