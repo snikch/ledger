@@ -164,7 +164,7 @@ end
 
 ### Manual Events
 
-You can add an event manually by creating an instance of `Ledger::Event`, then adding than in via `account.add_event`.
+You can add an event manually by creating an instance of `Ledger::Event`, then adding that in via `account.add_event`.
 
 ```ruby
 new_event = Ledger::Event.new key: "manual_event", data: { some: "thing" }
@@ -173,7 +173,7 @@ account.add_event new_event
 
 ### Direct Redis access
 
-You can access redis directly through `#events`. This will be a [Nest](https://github.com/soveran/nest) instance, and you can call on this, or use its naming schema to do some other magic.
+You can access redis directly through `#events`. This will be a [Nest](https://github.com/soveran/nest) instance and you can call on it, or use its naming schema to do some other magic.
 
 ```ruby
 # Trim the events down to the last 100 events
@@ -182,6 +182,16 @@ account.events.ltrim 0, 100
 # Create a new redis key (account:xxx:events:something_else)
 account.events["something_else"].lpush "Some data"
 ```
+
+## Who
+
+Created with love by [Mal Curtis](http://github.com/snikch)
+
+Twitter: [snikchnz](http://twitter.com/snikchnz)
+
+## License
+
+MIT. See license file.
 
 
 ## Contributing
