@@ -16,6 +16,7 @@ module Ledger
     end
 
     def add_event event
+      event.created_at = Time.now
       events.lpush event.to_json
     end
 

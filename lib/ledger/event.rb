@@ -6,7 +6,6 @@ module Ledger
       opts.each do |attr, value|
         self.send("#{attr}=", value) if respond_to?("#{attr}=")
       end
-      self.created_at = Time.now
     end
 
     class << self
