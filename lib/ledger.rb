@@ -8,6 +8,7 @@ module Ledger
 
   @@event_scope_method = :current_account
   @@event_actor_method = :current_user
+  @@redis = $redis
 
   class << self
     def configure

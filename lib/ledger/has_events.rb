@@ -2,7 +2,7 @@ require 'nest'
 module Ledger
   module HasEvents
     def rdb
-      Nest.new(self.class.name.downcase)[to_param]
+      Nest.new(self.class.name.downcase, Ledger.redis)[to_param]
     end
 
     def self.rdb
