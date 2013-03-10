@@ -1,6 +1,6 @@
 module Ledger
   class Event
-    attr_accessor :actor, :key, :action, :object, :data, :created_at
+    attr_accessor :actor, :action, :object, :data, :created_at
 
     def initialize opts
       opts.each do |attr, value|
@@ -8,7 +8,7 @@ module Ledger
       end
       self.created_at = Time.now
     end
-    
+
     class << self
       def from_json json
         require 'json'

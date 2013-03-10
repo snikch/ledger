@@ -68,7 +68,6 @@ Each event has the following (by default, for options see further down).
 
 ```
 {
-	"key"=>"category_updated",
 	"action"=>"updated",
 	"object"=>"Category",
 	"actor"=>{
@@ -128,7 +127,6 @@ create_event :state_changed, @category, from: from_state, to: @category.state
 
 ```
 {
-	"key"=>"category_state_changed",
 	"action"=>"state_changed",
 	"object"=>"Category",
 	"actor"=>{
@@ -167,7 +165,7 @@ end
 You can add an event manually by creating an instance of `Ledger::Event`, then adding that in via `account.add_event`.
 
 ```ruby
-new_event = Ledger::Event.new key: "manual_event", data: { some: "thing" }
+new_event = Ledger::Event.new action: "create", object: "manual_event", data: { some: "thing" }
 account.add_event new_event
 ```
 

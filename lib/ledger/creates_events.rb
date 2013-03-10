@@ -10,11 +10,10 @@ module Ledger
         object that does."
       end
 
-      object_name = object.class.name.downcase
-      key = [object_name, action].join('_')
+      object_name = object.class.name == "String" ? \
+        object : object.class.name.downcase
 
       details = {
-        key: key,
         action: action,
         object: object_name,
         actor: {},
