@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["mal@sitepoint.com"]
   gem.description   = %q{Redis backed account activity streams}
   gem.summary       = %q{Creates a per account activity stream for your Saas Ruby app}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/snikch/ledger"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
